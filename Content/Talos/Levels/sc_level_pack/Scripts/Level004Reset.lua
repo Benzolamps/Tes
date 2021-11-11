@@ -7,6 +7,6 @@ RunHandled(
     local distance = mthAbsF(mine:GetPlacement():GetVect().x - pressure:GetPlacement():GetVect().x)
     if plasma:IsOpen() and 5 > distance then
       base.ResetMessage()
-    end      
+    end
   end
 )

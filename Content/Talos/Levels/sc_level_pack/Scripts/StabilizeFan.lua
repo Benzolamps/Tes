@@ -1,4 +1,4 @@
-﻿local base = worldGlobals.CreateInstance(worldInfo)
+local base = worldGlobals.CreateInstance(worldInfo)
 
 while true do
   Wait(Delay(0.1))

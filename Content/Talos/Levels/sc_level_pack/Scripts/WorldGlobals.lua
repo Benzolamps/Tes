@@ -1,24 +1,17 @@
 -- level pack
-local levels = {
-  "Break Jamming", -- C
-  "Halloween", -- FC
-  "Detour", -- FC
-  "Domino", -- C
-  "Dependency", -- FC
-  "Close the Door Behind You", -- R
-  "Two Colors, Two Doors", -- R
-  "Traffic", -- R
-  "Gap", -- FCR
-  "Suspend", -- CR
-  "Milky Way Lovers", -- FCR
-  "Apophi", -- TFC
-  "Twilight", -- TC
-  "Draw Back", -- TR
-  "Mitosis", -- TFCR
-  "Teeterboard", -- TFCR
-  "Poppy in Tears", -- TCR
-  "Portability" -- TFCR
-}
+worldGlobals.levels = {}
+local levels = worldGlobals.levels
+
+local levelPackIndex = 0
+repeat
+  local levelPackFileName = "Content/Talos/Levels/sc_level_pack/Scripts/LevelPack" .. levelPackIndex .. ".lua"
+  if scrFileExists(levelPackFileName) then
+    dofile(levelPackFileName)
+    levelPackIndex = levelPackIndex + 1
+  else
+    levelPackIndex = -1
+  end
+until levelPackIndex < 0
 
 -- paged level pack
 local levelsSplit = {}
@@ -123,7 +116,7 @@ worldGlobals.CreateInstance = function (worldInfo)
 
   -- judge the counts of specified entity in specified area
   instance.EntityCountInArea = function (entityStr, areaDetector)
-    if not worldInfo then return 0 end
+    if nil == worldInfo then return 0 end
     local count = 0
     local all = worldInfo:GetAllEntitiesOfClass(entityStr)
     for _, entity in ipairs(all) do
