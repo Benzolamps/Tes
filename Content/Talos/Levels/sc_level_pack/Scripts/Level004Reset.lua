@@ -1,12 +1,12 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
-  base.WaitTerminal,
+  util.WaitTerminal,
   OnEvery(Delay(0.1)),
   function ()
     local distance = mthAbsF(mine:GetPlacement():GetVect().x - pressure:GetPlacement():GetVect().x)
     if plasma:IsOpen() and 5 > distance then
-      base.ResetMessage()
+      util.ResetMessage()
     end
   end
 )

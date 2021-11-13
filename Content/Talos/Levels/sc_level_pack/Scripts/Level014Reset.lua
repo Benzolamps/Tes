@@ -1,11 +1,11 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
-  base.WaitTerminal,
+  util.WaitTerminal,
   OnEvery(Delay(0.1)),
   function ()
-    if base.EntityCountInArea("CCarriableRodItemEntity", detector) <= 0 then
-      base.ResetMessage()
+    if util.EntityCountInArea("CCarriableRodItemEntity", detector) <= 0 then
+      util.ResetMessage()
     end
   end
 )

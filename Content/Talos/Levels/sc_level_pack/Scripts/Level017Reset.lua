@@ -1,11 +1,11 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
-  base.WaitTerminal,
+  util.WaitTerminal,
   OnEvery(Delay(0.1)),
   function ()
     if not pressure:IsPressed() then return end
-    if base.IsTimeSwitchActive() then return end
-    base.ResetMessage()
+    if util.IsTimeSwitchActive() then return end
+    util.ResetMessage()
   end
 )

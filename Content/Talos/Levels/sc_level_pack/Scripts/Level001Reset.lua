@@ -1,4 +1,4 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
   function ()
@@ -8,8 +8,8 @@ RunHandled(
   function ()
     detector1:Recharge()
     detector2:Recharge()
-    if not base.ExistEntityInArea("CJammerItemEntity", detector3) then
-      base.ResetMessage()
+    if not util.ExistEntityInArea("CJammerItemEntity", detector3) then
+      util.ResetMessage()
     end
   end
 )

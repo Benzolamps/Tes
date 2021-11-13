@@ -1,12 +1,11 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
-  base.WaitTerminal,
+  util.WaitTerminal,
   OnEvery(Event(detector.Activated)),
   function ()
     detector:Recharge()
-    if receiver:IsChargedUp() then return end
-    if receiver:IsCharging() then return end
-    base.ResetMessage()
+    if receiver:IsChargedUp() or receiver:IsCharging() then return end
+    util.ResetMessage()
   end
 )

@@ -1,12 +1,12 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
-  base.WaitTerminal,
+  util.WaitTerminal,
   OnEvery(Event(detector.Activated)),
   function ()
     detector:Recharge()
-    if not base.ExistEntityInArea("CCarriableFanItemEntity", detector) then
-      base.ResetMessage()
+    if not util.ExistEntityInArea("CCarriableFanItemEntity", detector) then
+      util.ResetMessage()
     end
   end
 )

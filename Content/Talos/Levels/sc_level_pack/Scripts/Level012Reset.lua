@@ -1,5 +1,4 @@
-
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
   WaitForever,
@@ -7,7 +6,7 @@ RunHandled(
   function ()
     detector:Recharge()
     if not turret:IsEnabled() then return end
-    if base:IsTimeSwitchPlaying() then return end
-    base.ResetMessage()
+    if util.IsTimeSwitchPlaying() then return end
+    util.ResetMessage()
   end
 )

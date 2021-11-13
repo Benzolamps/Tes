@@ -1,5 +1,5 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
-Wait(Event(base.GetTerminal().Stopped))
+Wait(Event(util.terminal.Stopped))
 fan:Deactivate()
 plasma:Deactivate()

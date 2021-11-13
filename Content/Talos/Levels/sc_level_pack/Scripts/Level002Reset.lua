@@ -1,13 +1,13 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
-  base.WaitTerminal,
+  util.WaitTerminal,
   OnEvery(Event(detector1.Activated)),
   function ()
     detector1:Recharge()
     if plasma:IsOpen() then return end
-    if base.ExistEntityInArea("CJammerItemEntity", detector1) then return end
-    if base.ExistEntityInArea("CJammerItemEntity", detector2) then return end
-    base.ResetMessage()
+    if util.ExistEntityInArea("CJammerItemEntity", detector1) then return end
+    if util.ExistEntityInArea("CJammerItemEntity", detector2) then return end
+    util.ResetMessage()
   end
 )

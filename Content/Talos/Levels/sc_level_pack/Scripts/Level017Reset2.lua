@@ -1,20 +1,19 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
-BreakableRunHandled(
-  base.WaitTerminal,
-  On(Delay(0.1)),
+RunHandled(
+  util.WaitTerminal,
+  OnEvery(Delay(0.1)),
   function ()
-    base.WaitUntil(function ()
-      local itemCount = base.EntityCountInArea("CCarriableItemEntity", entityDetector)
-      local jammerCount = base.EntityCountInArea("CJammerItemEntity", entityDetector)
-      return itemCount > jammerCount
-    end)
-    base.WaitWhile(base.IsTimeSwitchPlaying)
-    while true do
-      Wait(Delay(0.1))
-      if not red:IsChargedUp() and not playerDetector:IsActivated() then
-        base.ResetMessage()
-      end
+    if util.IsTimeSwitchActive() then return end
+    local itemCount = util.EntityCountInArea("CCarriableItemEntity", entityDetector)
+    local jammerCount = util.EntityCountInArea("CJammerItemEntity", entityDetector)
+    if itemCount == jammerCount then return end
+    if red:IsChargedUp() then return end
+    if playerDetector1:IsActivated() or playerDetector2:IsActivated() then
+      playerDetector1:Recharge()
+      playerDetector2:Recharge()
+      return
     end
+    util.ResetMessage()
   end
 )

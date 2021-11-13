@@ -1,13 +1,13 @@
-local base = worldGlobals.CreateInstance(worldInfo)
+local util = worldGlobals.CreateUtil(worldInfo)
 
 RunHandled(
-  base.WaitTerminal,
+  util.WaitTerminal,
   OnEvery(Event(detector.Activated)),
   function()
     detector:Recharge()
     if plasma:IsOpen() then return end
     if fan:IsActive() then return end
-    if base.ExistEntityInArea("CCarriableRodItemEntity", detector) then return end
-    base.ResetMessage()
+    if util.ExistEntityInArea("CCarriableRodItemEntity", detector) then return end
+    util.ResetMessage()
   end
 )
