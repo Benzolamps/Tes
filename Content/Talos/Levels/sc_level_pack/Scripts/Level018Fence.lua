@@ -1,2 +1,2 @@
-Wait(All(Event(red.ChargedUp), Event(blue.ChargedUp)))
+Wait(All(Events(receivers.ChargedUp)))
 fence:Open()

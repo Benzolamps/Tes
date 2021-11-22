@@ -7,7 +7,7 @@ RunHandled(
   OnEvery(Any(Events(detectors.Activated))),
   function ()
     detectors:Recharge()
-    if not util.ExistEntityInArea("CJammerItemEntity", detector3) then
+    if not util.ExistEntityInArea("CJammerItemEntity", detectorJammer) then
       util.ResetMessage()
     end
   end
