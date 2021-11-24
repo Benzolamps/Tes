@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SeriousEngineFile Loader="CXMLResourceFileType">
 	<TetrominoInstances>
-		<TetrominoInstances counthint="2">
+		<TetrominoInstances counthint="3">
 			<TetrominoInstanceData>
 				<Name></Name>
 				<NeededMechanics>T</NeededMechanics>
@@ -18,6 +18,16 @@
 				<Level>level20</Level>
 				<Puzzle>020</Puzzle>
 				<PuzzleTitle>"TTRS:ScLevelPack.Level20=Split Personality"</PuzzleTitle>
+				<PuzzleHint></PuzzleHint>
+				<TetrominoPos>0.0000 0.0000</TetrominoPos>
+				<MedianDuration>-2</MedianDuration>
+			</TetrominoInstanceData>
+			<TetrominoInstanceData>
+				<Name></Name>
+				<NeededMechanics>FCR</NeededMechanics>
+				<Level>level21</Level>
+				<Puzzle>021</Puzzle>
+				<PuzzleTitle>"TTRS:ScLevelPack.Level21=Plagued by Crises"</PuzzleTitle>
 				<PuzzleHint></PuzzleHint>
 				<TetrominoPos>0.0000 0.0000</TetrominoPos>
 				<MedianDuration>-2</MedianDuration>
