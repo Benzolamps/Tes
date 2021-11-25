@@ -13,6 +13,12 @@ if (terminal == util.terminal) then
   Wait(Delay(0.1))
   curr:Start()
   terminal:EnableASCIIAnimation(true)
+
+  if switch ~= nil then
+    local p = switch:GetPlacement()
+    p.vy = -1000
+    switch:SetPlacement(p)
+  end
 end
 
 local finished = false
@@ -86,11 +92,18 @@ RunHandled(
   On(Event(terminal.Stopped)),
   function ()
     if terminal == util.terminal then
-      if fences then
+      if fences ~= nil then
         fences:Open()
       end
-      if barriers then
+      if barriers ~= nil then
         barriers:Disable()
+      end
+      if switch ~= nil then
+        if switch:IsActivated() then
+          switch:Deactivate()
+        else
+          switch:Activate()
+        end
       end
     end
   end
