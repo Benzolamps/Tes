@@ -5,7 +5,7 @@ local util = worldGlobals.CreateUtil(worldInfo)
 -- talosProgress : CTalosProgress
 local talosProgress = nexGetTalosProgress(worldInfo)
 
-if (terminal == util.terminal) then
+if terminal == util.terminal then
   -- create temporal chapter, prevent not saving the level
   local curr = worldInfo:GetCurrentChapter()
   local temp = SpawnEntityByClass(worldInfo, curr:GetPlacement(), "CChapterInfoEntity")
@@ -52,14 +52,12 @@ RunHandled(
     local levelIndex = talosProgress:GetCodeValue("Level")
     local level
     for key in pairs(util.levels) do
-      if (key >= levelIndex) then
+      if key >= levelIndex then
         level = util.levels[levelIndex]
         break
       end
     end
-    if (nil == level) then
-      level = util.levels[1]
-    end
+    level = level or util.levels[1]
     terminal:AddString(util.FormatString(util.strings.Opening, level.levelFile) .. util.strings.CommonPrompt)
     Wait(Delay(2))
     worldInfo:StartLevel(level.levelFile)
@@ -69,7 +67,7 @@ RunHandled(
   OnEvery(CustomEvent(terminal, "TerminalEvent_1")),
   function ()
     local str
-    if (util.currentLevel.GetLevelTime() > 0) then
+    if util.currentLevel.GetLevelTime() > 0 then
       str = util.FormatString(
         util.strings.LevelRecordInfo,
         util.currentLevel.levelTitle,
